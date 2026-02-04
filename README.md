@@ -1,214 +1,171 @@
-# Kul-kul Web Application 
+Kul-Kul: Sistem Informasi Manajemen Ekstrakurikuler
 
-A robust codebase designed to support dynamic, modular applications. The `kul-kul` repository by Raditt10 focuses on extensibility, maintainability, and developer productivity. This project is ideal for building scalable services or web applications, enabling rapid development with a clean architecture.
+Kul-Kul adalah aplikasi berbasis web yang dirancang untuk memodernisasi dan mempermudah pengelolaan kegiatan ekstrakurikuler di sekolah. Aplikasi ini menyediakan platform terpusat bagi siswa untuk mendaftar dan melihat informasi, serta bagi admin dan pembina untuk mengelola jadwal, anggota, penilaian, dan prestasi secara efisien.
+📌 Deskripsi Project
 
-## Introduction
+Sistem ini dibangun untuk mengatasi kendala administrasi manual dalam kegiatan ekstrakurikuler. Dengan Kul-Kul, sekolah dapat memiliki database kegiatan yang terorganisir, transparan, dan mudah diakses.
 
-`kul-kul` provides a foundation for developing modern software solutions. The architecture encourages separation of concerns, modular design, and easy integration with various tools and services. Whether you're building an internal tool, web service, or modular application, `kul-kul` delivers a flexible and reliable starting point.
+Tujuan Utama:
 
-## Features
+    Memudahkan proses pendaftaran siswa baru ke dalam ekstrakurikuler.
 
-- Modular architecture with clean separation of layers
-- Support for environment-based configuration
-- Easily extendable for new features or integrations
-- Built-in development server support
-- Robust error handling and logging
-- Scalable structure for teams and solo developers
+    Menyediakan manajemen data anggota, pembina, dan jadwal latihan yang rapi.
 
-## Requirements
+    Mencatat rekam jejak prestasi dan penilaian siswa secara digital.
 
-To run `kul-kul`, ensure you have the following:
+🚀 Fitur Utama
+🎓 Halaman Pengunjung & Siswa
 
-- **Node.js** (version 14 or higher)
-- **npm** or **yarn** (for dependency management)
-- A UNIX-like OS (Linux, macOS) is preferred for compatibility
-- Git (for version control)
+    Landing Page Informatif: Menampilkan informasi umum tentang kegiatan sekolah.
 
-## Installation
+    Katalog Ekstrakurikuler: Daftar lengkap ekstrakurikuler beserta deskripsi dan kegiatannya.
 
-Follow these steps to get started:
+    Pendaftaran Online: Formulir digital untuk siswa yang ingin bergabung dengan ekstrakurikuler.
 
-1. **Clone the repository:**
-    ```bash
-    git clone https://github.com/Raditt10/kul-kul.git
+    Profil Siswa: Halaman bagi siswa untuk melihat status keanggotaan mereka.
+
+🛠️ Dashboard Admin & Pembina
+
+    Manajemen Master Data: Pengelolaan data ekstrakurikuler, pembina, dan tahun ajaran.
+
+    Verifikasi Pendaftaran: Fitur untuk menyetujui atau menolak pendaftaran siswa baru.
+
+    Manajemen Jadwal: Pembuatan dan pengaturan jadwal latihan rutin.
+
+    Pencatatan Prestasi: Input data prestasi yang diraih oleh siswa atau tim ekstrakurikuler.
+
+    Input Penilaian: Sistem penilaian kinerja anggota ekstrakurikuler.
+
+    Laporan: Pembuatan laporan kegiatan dan keanggotaan.
+
+    Manajemen Pengguna & Role: Pengaturan hak akses untuk Admin, Pembina, dan Siswa.
+
+🛠️ Tech Stack
+
+Project ini dikembangkan menggunakan teknologi berikut:
+
+    Backend Framework: Laravel 10 (PHP Framework)
+
+    Frontend: Blade Templating Engine, HTML5, CSS3, JavaScript (Vanilla/jQuery)
+
+    Database: MySQL
+
+    Styling: Custom CSS (public/css/style.css)
+
+    Web Server: Apache/Nginx
+
+    Package Manager: Composer (PHP) & NPM (Node.js)
+
+📁 Struktur Folder
+
+Berikut adalah gambaran umum struktur direktori penting dalam proyek ini:
+Plaintext
+
+├── app/
+│   ├── Http/Controllers/  # Logika kontroler (Admin, Ekskul, Pendaftaran, dll)
+│   ├── Models/            # Model Eloquent (Ekskul, Member, Prestasi, dll)
+├── database/
+│   ├── migrations/        # Struktur skema database
+│   ├── seeders/           # Data dummy untuk testing
+├── public/
+│   ├── css/               # File CSS statis
+│   ├── js/                # File JavaScript statis
+│   ├── images/            # Aset gambar (logo, foto kegiatan)
+├── resources/
+│   ├── views/             # Template Blade (admin/, user/, layouts/)
+├── routes/
+│   ├── web.php            # Definisi rute aplikasi web
+├── .env.example           # Contoh konfigurasi environment
+└── composer.json          # Dependensi PHP
+
+⚙️ Instalasi & Setup
+
+Ikuti langkah-langkah berikut untuk menjalankan proyek di komputer lokal Anda:
+Prasyarat
+
+Pastikan Anda telah menginstal:
+
+    PHP >= 8.1
+
+    Composer
+
+    MySQL Database
+
+    Node.js & NPM (Opsional, jika ada aset yang perlu dikompilasi)
+
+Langkah Instalasi
+
+    Clone Repository
+    Bash
+
+    git clone https://github.com/raditt10/kul-kul.git
     cd kul-kul
-    ```
-2. **Install dependencies:**
-    ```bash
+
+    Instal Dependensi PHP
+    Bash
+
+    composer install
+
+    Instal Dependensi Frontend (Jika diperlukan)
+    Bash
+
     npm install
-    ```
-    Or, if you prefer yarn:
-    ```bash
-    yarn install
-    ```
 
-3. **Copy the example environment file and adjust as needed:**
-    ```bash
+    Konfigurasi Environment Salin file .env.example menjadi .env:
+    Bash
+
     cp .env.example .env
-    # Edit the .env file to configure your environment variables
-    ```
 
-## Usage
+    Buka file .env dan sesuaikan konfigurasi database Anda:
+    Ini, TOML
 
-The repository provides several scripts for development and production.
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=nama_database_anda
+    DB_USERNAME=root
+    DB_PASSWORD=
 
-- **Start the development server:**
-    ```bash
-    npm run dev
-    ```
-- **Build for production:**
-    ```bash
-    npm run build
-    ```
-- **Start the production server:**
-    ```bash
-    npm start
-    ```
+    Generate Application Key
+    Bash
 
-### Common Commands
+    php artisan key:generate
 
-- **Run tests:**
-    ```bash
-    npm test
-    ```
-- **Lint the code:**
-    ```bash
-    npm run lint
-    ```
+    Migrasi dan Seeding Database Jalankan migrasi untuk membuat tabel dan seeder untuk mengisi data awal (dummy data):
+    Bash
 
-## Configuration
+    php artisan migrate --seed
 
-Configuration is managed through environment variables, making it easy to adjust settings per environment.
+🖥️ Cara Menjalankan Project
 
-- Create or update your `.env` file with the required settings.
-- Typical configuration options include:
-    - `PORT`: Port number for the server
-    - `NODE_ENV`: Environment type (development, production, test)
-    - Additional variables as needed for your integrations
+Untuk menjalankan server pengembangan lokal:
+Bash
 
-**Example `.env` configuration:**
-```
-PORT=3000
-NODE_ENV=development
-```
+php artisan serve
 
-## Project Architecture
+Akses aplikasi melalui browser di alamat: http://localhost:8000
+🔐 Environment Variable Penting
 
-The project follows a modular and layered structure. Below is an overview of the main components.
+Selain koneksi database, pastikan variabel berikut diatur di .env sesuai kebutuhan (terutama jika menggunakan fitur upload gambar):
+Key	Deskripsi
+APP_URL	URL aplikasi (misal: http://localhost:8000)
+FILESYSTEM_DISK	Driver penyimpanan file (default: local atau public)
+🤝 Kontribusi
 
-```mermaid
-flowchart TD
-    A[Entry Point - server/index.js] --> B[Configuration Loader]
-    B --> C[Router Modules]
-    C --> D[Controllers]
-    D --> E[Services]
-    E --> F[Database Layer]
-    F --> G[External Integrations]
-    D --> H[Error Handling Middleware]
-    H --> I[Logger]
-```
+Kontribusi sangat diterima! Jika Anda ingin berkontribusi pada proyek ini:
 
-- **Entry Point:** Sets up environment, loads configuration, starts HTTP server.
-- **Router Modules:** Define API routes and route handlers.
-- **Controllers:** Handle request validation and business logic invocation.
-- **Services:** Contain core business logic and interact with the database or external APIs.
-- **Database Layer:** Abstraction for data persistence and retrieval.
-- **Error Handling:** Centralized error processing and logging.
+    Fork repository ini.
 
-## API Endpoints
+    Buat branch fitur baru (git checkout -b fitur-keren).
 
-The repository provides a set of modular endpoints. Each endpoint is well-documented and follows REST conventions.
+    Commit perubahan Anda (git commit -m 'Menambahkan fitur keren').
 
-### Example: Get All Items (GET /items)
+    Push ke branch tersebut (git push origin fitur-keren).
 
-#### GET /items
+    Buat Pull Request.
 
-```api
-{
-    "title": "Get All Items",
-    "description": "Retrieve a list of all items.",
-    "method": "GET",
-    "baseUrl": "https://api.example.com",
-    "endpoint": "/items",
-    "headers": [],
-    "queryParams": [],
-    "pathParams": [],
-    "bodyType": "none",
-    "requestBody": "",
-    "formData": [],
-    "responses": {
-        "200": {
-            "description": "Success",
-            "body": "{\n  \"data\": [\n    { \"id\": 1, \"name\": \"Item 1\" },\n    { \"id\": 2, \"name\": \"Item 2\" }\n  ]\n}"
-        },
-        "500": {
-            "description": "Server Error",
-            "body": "{\n  \"error\": { \"message\": \"Internal server error\" }\n}"
-        }
-    }
-}
-```
+📄 Lisensi
 
-### Example: Create a New Item (POST /items)
+Proyek ini dilisensikan di bawah MIT License. Silakan gunakan dan modifikasi sesuai kebutuhan.
 
-```api
-{
-    "title": "Create Item",
-    "description": "Create a new item.",
-    "method": "POST",
-    "baseUrl": "https://api.example.com",
-    "endpoint": "/items",
-    "headers": [
-        {
-            "key": "Content-Type",
-            "value": "application/json",
-            "required": true
-        }
-    ],
-    "queryParams": [],
-    "pathParams": [],
-    "bodyType": "json",
-    "requestBody": "{\n  \"name\": \"New Item\"\n}",
-    "formData": [],
-    "responses": {
-        "201": {
-            "description": "Created",
-            "body": "{\n  \"data\": { \"id\": 3, \"name\": \"New Item\" }\n}"
-        },
-        "400": {
-            "description": "Bad Request",
-            "body": "{\n  \"error\": { \"message\": \"Validation failed\" }\n}"
-        }
-    }
-}
-```
-
-## Contributing
-
-Contributions are welcome and encouraged. Please follow these steps:
-
-- Fork the repository and create your branch.
-- Commit your changes clearly and concisely.
-- Ensure code passes all linting and tests.
-- Submit a pull request with a clear description.
-
-### Code of Conduct
-
-- Be respectful and inclusive.
-- Provide constructive feedback in code reviews.
-- Adhere to the repository’s coding standards.
-
-### Issue Reporting
-
-- Search existing issues before opening a new one.
-- Provide detailed steps to reproduce problems.
-- Suggest possible solutions if you have any ideas.
-
-## License
-
-This project is open source. See the LICENSE file for details.
-
----``
-
-For any additional questions or support, please open an issue or contact the repository maintainers.](Roundless-Slayer Team)
-
+Dibuat oleh [Raditt10]
