@@ -198,4 +198,4 @@ Project ini dilisensikan di bawah **MIT License**. Lihat file [LICENSE](https://
 
 ---
 
-*Hak cipta sepenuhnya milik pengembang [Roundless Slayer Team 2025].*
+_© 2025 Hak cipta milik pengembang [Roundless Slayer Team]
